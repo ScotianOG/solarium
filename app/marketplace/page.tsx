@@ -1,10 +1,12 @@
 import { MarketplaceGrid } from "@/components/marketplace-grid"
 import { MarketplaceFilters } from "@/components/marketplace-filters"
 import { TopCollections } from "@/components/top-collections"
+import { ClientUpcomingMints } from "@/components/client-upcoming-mints"
 
 export default function MarketplacePage() {
   return (
     <div className="space-y-12">
+      <ClientUpcomingMints />
       <div className="space-y-4">
         <h1 className="text-4xl font-bold gradient-text">NFT Marketplace</h1>
         <p className="text-gray-400 max-w-3xl">
@@ -25,4 +27,3 @@ export default function MarketplacePage() {
     </div>
   )
 }
-

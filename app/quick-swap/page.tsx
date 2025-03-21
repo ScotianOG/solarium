@@ -1,4 +1,4 @@
-import { QuickSwap } from "@/components/quick-swap"
+import { ClientQuickSwap } from "@/components/client-quick-swap"
 
 export default function QuickSwapPage() {
   return (
@@ -7,8 +7,7 @@ export default function QuickSwapPage() {
       <p className="text-gray-400 max-w-3xl mb-8">
         Easily swap between SOL, SOLess, and other supported tokens using our QuickSwap feature.
       </p>
-      <QuickSwap />
+      <ClientQuickSwap />
     </div>
   )
 }
-

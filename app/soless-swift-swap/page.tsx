@@ -1,4 +1,4 @@
-import { SOLessSwiftSwap } from "@/components/soless-swift-swap"
+import { ClientSOLessSwiftSwap } from "@/components/client-soless-swift-swap"
 
 export default function SOLessSwiftSwapPage() {
   return (
@@ -7,8 +7,7 @@ export default function SOLessSwiftSwapPage() {
       <p className="text-gray-400 max-w-3xl mb-8">
         Quickly swap between SOL, SOLess, and other supported tokens using our SOLess SwiftSwap feature. Choose your preferred gas token for the transaction.
       </p>
-      <SOLessSwiftSwap />
+      <ClientSOLessSwiftSwap />
     </div>
   )
 }
-

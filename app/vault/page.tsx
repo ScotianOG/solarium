@@ -1,5 +1,6 @@
 import { VaultOverview } from "@/components/vault-overview"
 import { CollectionsOverview } from "@/components/collections-overview"
+import { MyVaultNFTs } from "@/components/my-vault-nfts"
 
 export default function VaultPage() {
   return (
@@ -13,8 +14,8 @@ export default function VaultPage() {
         </p>
       </div>
       <VaultOverview />
+      <MyVaultNFTs />
       <CollectionsOverview />
     </div>
   )
 }
-

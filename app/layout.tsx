@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
-import { Header } from "@/components/header"
+import { ClientHeader } from "@/components/client-header"
 import { Footer } from "@/components/footer"
-import { Sidebar } from "@/components/sidebar"
+import { ClientSidebar } from "@/components/client-sidebar"
 import { GlobalStyles } from "@/components/global-styles"
+import { ThemeProvider } from "@/components/theme-provider"
+import { AppProvider } from "@/lib/state/app-context"
+import { SkipLink } from "@/components/ui/skip-link"
 import "@/styles/globals.css"
+import "@/styles/animations.css"
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'],
@@ -23,17 +27,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable}`}>
-      <body className={`${spaceGrotesk.className} custom-scrollbar min-h-screen bg-black text-white`}>
-        <Sidebar />
-        <div className="pl-[200px]"> {/* Add left padding equal to sidebar width */}
-          <Header />
-          <main className="min-h-[calc(100vh-4rem)] p-6">
-            {children}
-          </main>
-          <Footer />
-        </div>
-        <GlobalStyles />
+    <html lang="en" className={`${spaceGrotesk.variable}`}>
+      <body className={`${spaceGrotesk.className} custom-scrollbar min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <AppProvider>
+            <SkipLink href="#main-content" />
+            <ClientSidebar />
+            <div className="md:pl-[200px]"> {/* Use responsive padding */}
+              <ClientHeader />
+              <main 
+                id="main-content" 
+                className="min-h-[calc(100vh-4rem)] p-4 md:p-6 animate-fade-in"
+                tabIndex={-1} // Allows focus for skip link but doesn't add to tab order
+              >
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <GlobalStyles />
+          </AppProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
